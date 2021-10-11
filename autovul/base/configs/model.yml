@@ -1,0 +1,2 @@
+model_dir: ./data/model/
+default_model: default

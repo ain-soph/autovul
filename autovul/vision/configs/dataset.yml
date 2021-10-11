@@ -1,0 +1,11 @@
+default_dataset: cifar10
+
+batch_size:
+  default: 128
+  mnist: -512
+  cifar10: 96
+  cifar100: 96
+  gtsrb: 96
+  imagenet16: 96
+
+data_format: folder
