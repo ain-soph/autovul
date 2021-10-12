@@ -79,12 +79,16 @@ class Dataset(ABC, BasicObject):
         if download and not self.check_files():
             self.initialize()
         # Preset Loader
-        self.loader: dict[str, torch.utils.data.DataLoader] = {}
-        self.loader['train'] = self.get_dataloader(mode='train')
-        self.loader['train2'] = self.get_dataloader(mode='train', full=False)
-        self.loader['valid'] = self.get_dataloader(mode='valid')
-        self.loader['valid2'] = self.get_dataloader(mode='valid', full=False)
-        self.loader['test'] = self.get_dataloader(mode='test')
+        try:
+            self.loader: dict[str, torch.utils.data.DataLoader] = {}
+            self.loader['train'] = self.get_dataloader(mode='train')
+            self.loader['train2'] = self.get_dataloader(mode='train', full=False)
+            self.loader['valid'] = self.get_dataloader(mode='valid')
+            self.loader['valid2'] = self.get_dataloader(mode='valid', full=False)
+            self.loader['test'] = self.get_dataloader(mode='test')
+        except Exception:
+            print(f'Dataset Folder Path: {self.folder_path}')
+            raise
         # ----------------------------------------------------------------------------- #
         # Loss Weights
         if isinstance(loss_weights, bool):
