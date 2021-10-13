@@ -3,8 +3,8 @@
 This is a minimum code implementation of our USENIX'22 paper [`On the Security Risks of AutoML`](https://arxiv.org/abs/2110.06018). 
 
 # Abstract
-The paper discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain.  
-We expect automl models to be more vulnerable than manual models.
+The artifact discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain. It implements all datasets, models, and attacks used in our paper.    
+We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks.
 
 # Checklist
 * **Binary**: on [pypi](https://pypi.org/project/autovul/) with any platform.
