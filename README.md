@@ -1,6 +1,6 @@
 > This project is a minimized runnable project cut from [trojanzoo](https://github.com/ain-soph/trojanzoo), which contains more datasets, models, attacks and defenses. This repo will not be maintained. 
 
-This is a minimum code implementation of our USENIX'22 paper `On the Security Risks of AutoML`. 
+This is a minimum code implementation of our USENIX'22 paper [`On the Security Risks of AutoML`](https://arxiv.org/abs/2110.06018). 
 
 # Abstract
 ## Brief Description
