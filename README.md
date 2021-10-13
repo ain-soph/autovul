@@ -3,7 +3,6 @@
 This is a minimum code implementation of our USENIX'22 paper [`On the Security Risks of AutoML`](https://arxiv.org/abs/2110.06018). 
 
 # Abstract
-## Brief Description
 The paper discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain.  
 We expect automl models to be more vulnerable than manual models.
 
