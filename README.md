@@ -4,7 +4,7 @@ This is a minimum code implementation of our USENIX'22 paper [`On the Security R
 
 # Abstract
 The artifact discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain. It implements all datasets, models, and attacks used in our paper.    
-We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks.
+We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by their small gradient variance.
 
 # Checklist
 * **Binary**: on [pypi](https://pypi.org/project/autovul/) with any platform.
@@ -129,4 +129,4 @@ For automl models on CIFAR10,
     deep architectures (`darts-i, darts-iii`) have larger cross entropy for extraction attack (around 0.5), and higher accuracy drop for poisoning attack (around 7%).
 
 ## Experiment Customization
-Use `-h` or `--help` flag for python files to check available arguments.
+Use `-h` or `--help` flag for example python files to check available arguments.
