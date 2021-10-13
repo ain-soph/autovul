@@ -10,7 +10,9 @@ We expect automl models to be more vulnerable than manual models.
 # Checklist
 * **Binary**: on [pypi](https://pypi.org/project/autovul/) with any platform.
 * **Model**: ResNet and other model pretrained weights are available with `--official` flag to download them automatically at first running.
-* **Data set**: CIFAR10, CIFAR100 and ImageNet32. Use `--download` flag to download them automatically at first running. 
+* **Data set**: CIFAR10, CIFAR100 and ImageNet32.  
+Use `--download` flag to download them automatically at first running.  
+ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
 * **Run-time environment**:  
     At any platform (Windows and Ubuntu tested).  
     `Pytorch` and `torchvision` required. (CUDA recommended)  
@@ -30,11 +32,14 @@ less than 5GB.
 
 # Description
 ## How to access
-* [**GitHub**](https://github.com/ain-soph/autovul)
+* [**GitHub**](https://github.com/ain-soph/autovul)  
+    `pip install -e .`
 * [**PYPI**](https://pypi.org/project/autovul/)  
     `pip install autovul`
-* [**Docker Hub**](https://hub.docker.com/r/local0state/autovul)
-* [**GitHub Packages**](https://github.com/ain-soph/autovul/pkgs/container/autovul)
+* [**Docker Hub**](https://hub.docker.com/r/local0state/autovul)  
+    `docker pull local0state/autovul`
+* [**GitHub Packages**](https://github.com/ain-soph/autovul/pkgs/container/autovul)  
+    `docker pull ghcr.io/ain-soph/autovul`
 
 ## Hardware Dependencies
 Recommend to use GPU with CUDA and CUDNN.  
@@ -48,7 +53,9 @@ ART (IBM) required for extraction attack and membership attack.
 `pip install adversarial-robustness-toolbox`
 
 ## Data set
-CIFAR10, CIFAR100 and ImageNet32. Use `--download` flag to download them automatically at first running. 
+CIFAR10, CIFAR100 and ImageNet32.  
+Use `--download` flag to download them automatically at first running.  
+ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
 ## Models
 ResNet and other model pretrained weights are available with `--official` flag to download them automatically at first running.
 ## Installation

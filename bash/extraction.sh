@@ -9,7 +9,7 @@ for model in "${models[@]}"; do
     echo $model
     for rate in "${rates[@]}"; do
         echo $rate
-        python projects/automl/extraction_attack.py --pretrain --dataset $dataset --model $model --nb_stolen $rate $args
+        python projects/extraction_attack.py --pretrain --dataset $dataset --model $model --nb_stolen $rate $args
     done
 done
 
@@ -17,6 +17,6 @@ for arch in "${archs[@]}"; do
     echo $arch
     for rate in "${rates[@]}"; do
         echo $rate
-        python projects/automl/extraction_attack.py --pretrain --dataset $dataset --model darts --model_arch $arch --nb_stolen $rate $args
+        python projects/extraction_attack.py --pretrain --dataset $dataset --model darts --model_arch $arch --nb_stolen $rate $args
     done
 done

@@ -7,11 +7,11 @@ args=$1
 for model in "${models[@]}"
 do
     echo $model
-    python examples/membership.py  --dataset $dataset --pretrain --model $model $args
+    python projects/membership.py  --dataset $dataset --pretrain --model $model $args
 done
 
 for arch in "${archs[@]}"
 do
     echo $arch
-    python examples/membership.py  --dataset $dataset --pretrain --model darts --model_arch $arch $args
+    python projects/membership.py  --dataset $dataset --pretrain --model darts --model_arch $arch $args
 done
