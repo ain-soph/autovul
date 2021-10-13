@@ -1,0 +1,138 @@
+% LaTeX template for Artifact Evaluation V20211004
+%
+% Original Authors 
+% * Grigori Fursin (cTuning foundation, France) 2014-2020
+% * Bruce Childers (University of Pittsburgh, USA) 2014
+% 
+% Modified by
+% * Clémentine Maurice (CNRS, France) 2021
+% * Cristiano Giuffrida (Vrije Universiteit Amsterdam, Netherlands) 2021
+%
+% See examples of the original Artifact Appendix in
+%  * SC'17 paper: https://dl.acm.org/citation.cfm?id=3126948
+%  * CGO'17 paper: https://www.cl.cam.ac.uk/~sa614/papers/Software-Prefetching-CGO2017.pdf
+%  * ACM ReQuEST-ASPLOS'18 paper: https://dl.acm.org/citation.cfm?doid=3229762.3229763
+%
+% (C)opyright 2014-2020
+%
+% CC BY 4.0 license
+%
+
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{usenix-2020-09}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\special{papersize=8.5in,11in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% When adding this appendix to your paper, 
+% please remove above part
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\section{Artifact Appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract}
+
+The artifact discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain. It implements all datasets, models, and attacks used in our paper.
+
+We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks.
+
+\subsection{Artifact check-list (meta-information)}
+
+{\small
+\begin{itemize}
+  \item {\bf Binary: } on \href{https://pypi.org/project/autovul/}{pypi} with any platform.
+  \item {\bf Model: } ResNet and other model pretrained weights are available with $--official$ flag to download them automatically at first running.
+  \item {\bf Data set: } CIFAR10, CIFAR100 and ImageNet32. Use $--download$ flag to download them automatically at first running. ImageNet32 requires manual set-up at their \href{https://image-net.org/download-images.php}{website} due to legality.
+  \item {\bf Run-time environment: }
+  At any platform (Windows and Ubuntu tested).  
+  `Pytorch` and `torchvision` required. (CUDA recommended)  
+  `adversarial-robustness-toolbox` required for extraction attack and membership attack.
+  \item {\bf Hardware: }
+  \item {\bf Run-time state: }
+  \item {\bf Execution: }
+  \item {\bf Metrics: }
+  \item {\bf Output: }
+  \item {\bf Experiments: }
+  \item {\bf How much disk space required (approximately)?: }
+  \item {\bf How much time is needed to prepare workflow (approximately)?: }
+  \item {\bf How much time is needed to complete experiments (approximately)?: }
+  \item {\bf Publicly available?: }
+  \item {\bf Code licenses (if publicly available)?: }
+  \item {\bf Data licenses (if publicly available)?: }
+  \item {\bf Workflow framework used?: }
+  \item {\bf Archived (provide DOI)?: }
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Description}
+
+\subsubsection{How to access}
+
+{\em Obligatory when applying for an “Artifacts Available” badge}
+
+\subsubsection{Hardware dependencies}
+
+\subsubsection{Software dependencies}
+
+\subsubsection{Data sets}
+
+\subsubsection{Models}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Installation}
+
+{\em Obligatory}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Experiment workflow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Evaluation and expected results}
+
+{\em Obligatory. Describe all the steps necessary to reproduce the key results from your paper, with concrete claims. These will be the claims evaluated by the Artifact Evaluation Committee.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Experiment customization}
+Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance. Therefore, for each attack, we expect automl models to have: 
+### Train
+Most models around 96%-97% accuracy on CIFAR10.
+### Attack
+For automl models on CIFAR10,
+* **adversarial**  
+    higher success rate (around 10%).
+* **poison**  
+    lower accuracy drop (around 5%).
+* **backdoor**  
+    higher success rate (around 2%)
+    lower accuracy drop (around 1%).
+* **extraction**  
+    lower inference cross entropy (around 0.3).
+* **membership**  
+    higher auc (around 0.04).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Notes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Methodology}
+
+Submission, reviewing and badging methodology:
+
+\begin{itemize}
+  \item \url{https://www.acm.org/publications/policies/artifact-review-badging}
+  \item \url{http://cTuning.org/ae/submission-20201122.html}
+  \item \url{http://cTuning.org/ae/reviewing-20201122.html}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% When adding this appendix to your paper, 
+% please remove below part
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
