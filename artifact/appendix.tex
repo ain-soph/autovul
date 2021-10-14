@@ -20,7 +20,7 @@
 
 \documentclass[letterpaper,twocolumn,10pt]{article}
 \usepackage{usenix-2020-09}
-
+\usepackage{xcolor}
 \usepackage{hyperref}
 
 \begin{document}
@@ -37,36 +37,35 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Abstract}
-
 The artifact discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain. It implements all datasets, models, and attacks used in our paper.
 
-We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks.
+We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by their small gradient variance.
 
 \subsection{Artifact check-list (meta-information)}
 
 {\small
 \begin{itemize}
-  \item {\bf Binary: } on \href{https://pypi.org/project/autovul/}{pypi} with any platform.
-  \item {\bf Model: } ResNet and other model pretrained weights are available with $--official$ flag to download them automatically at first running.
-  \item {\bf Data set: } CIFAR10, CIFAR100 and ImageNet32. Use $--download$ flag to download them automatically at first running. ImageNet32 requires manual set-up at their \href{https://image-net.org/download-images.php}{website} due to legality.
-  \item {\bf Run-time environment: }
-  At any platform (Windows and Ubuntu tested).  
-  `Pytorch` and `torchvision` required. (CUDA recommended)  
-  `adversarial-robustness-toolbox` required for extraction attack and membership attack.
-  \item {\bf Hardware: }
-  \item {\bf Run-time state: }
-  \item {\bf Execution: }
-  \item {\bf Metrics: }
-  \item {\bf Output: }
-  \item {\bf Experiments: }
-  \item {\bf How much disk space required (approximately)?: }
-  \item {\bf How much time is needed to prepare workflow (approximately)?: }
-  \item {\bf How much time is needed to complete experiments (approximately)?: }
-  \item {\bf Publicly available?: }
-  \item {\bf Code licenses (if publicly available)?: }
-  \item {\bf Data licenses (if publicly available)?: }
-  \item {\bf Workflow framework used?: }
-  \item {\bf Archived (provide DOI)?: }
+    \item {\bf Binary: }on \href{https://pypi.org/project/autovul/}{pypi} with any platform.
+    \item {\bf Model: }ResNet and other model pretrained weights are available with \colorbox{lightgray}{--official} flag to download them automatically at first running.
+    \item {\bf Data set: }CIFAR10, CIFAR100 and ImageNet32. Use \colorbox{lightgray}{--download} flag to download them automatically at first running. ImageNet32 requires manual set-up at their \href{https://image-net.org/download-images.php}{website} due to legality.
+    \item {\bf Run-time environment: }
+
+          At any platform (Windows and Ubuntu tested).
+
+          `Pytorch` and `torchvision` required. (CUDA recommended)
+
+          `adversarial-robustness-toolbox` required for extraction attack and membership attack.
+    \item {\bf Hardware: }GPU with CUDA support is recommended.
+    \item {\bf Execution: }Model training and backdoor attack would be time-consuming. It would cost more than half day on a Nvidia Quodro RTX6000.
+    \item {\bf Metrics: }Model accuracy, attack success rate, clean accuracy drop and cross entropy.
+    \item {\bf Output: }console output and saved model files (.pth).
+    \item {\bf Experiments: }OS scripts. Recommend to run scripts 3-5 times to reduce the randomness of experiments.
+    \item {\bf How much disk space required (approximately)?: }less than 5GB.
+    \item {\bf How much time is needed to prepare workflow (approximately)?: }within 1 hour.
+    \item {\bf How much time is needed to complete experiments (approximately)?: }3-4 days.
+    \item {\bf Publicly available?: }on GitHub.
+    \item {\bf Code licenses (if publicly available)?: }GPL-3.
+    \item {\bf Archived (provide DOI)?: }GitHub commit XXXXXXX (todo).
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,47 +73,138 @@ We expect the artifact could support the paper's claim that automl models are mo
 
 \subsubsection{How to access}
 
-{\em Obligatory when applying for an “Artifacts Available” badge}
+{\small
+\begin{itemize}
+    \item {\bf \href{https://github.com/ain-soph/autovul}{GitHub}: } pip install -e .
+    \item {\bf \href{https://pypi.org/project/autovul/}{PYPI}: } pip install autovul
+    \item {\bf \href{https://hub.docker.com/r/local0state/autovul}{Docker Hub}: } docker pull local0state/autovul
+    \item {\bf \href{https://github.com/ain-soph/autovul/pkgs/container/autovul}{GitHub Packages}: } docker pull ghcr.io/ain-soph/autovul
+\end{itemize}
 
 \subsubsection{Hardware dependencies}
-
+Recommend to use GPU with CUDA and CUDNN. Less than 5GB disk space is needed.
 \subsubsection{Software dependencies}
+You need to install \colorbox{lightgray}{python==3.9, pytorch==1.9.x, torchvision==0.10.x} manually.
+
+ART (IBM) is required for extraction attack and membership attack. \colorbox{lightgray}{pip install adversarial-robustness-toolbox}
 
 \subsubsection{Data sets}
-
+We use CIFAR10, CIFAR100 and ImageNet32 datasets. Use \colorbox{lightgray}{--download} flag to download them automatically at first running. ImageNet32 requires manual set-up at their \href{https://image-net.org/download-images.php}{website} due to legality.
 \subsubsection{Models}
+ResNet and other model pretrained weights are available with \colorbox{lightgray}{--official} flag to download automatically at first running.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Installation}
 
-{\em Obligatory}
+{\small
+\begin{itemize}
+    \item {\bf \href{https://github.com/ain-soph/autovul}{GitHub}: } pip install -e .
+    \item {\bf \href{https://pypi.org/project/autovul/}{PYPI}: } pip install autovul
+    \item {\bf \href{https://hub.docker.com/r/local0state/autovul}{Docker Hub}: } docker pull local0state/autovul
+    \item {\bf \href{https://github.com/ain-soph/autovul/pkgs/container/autovul}{GitHub Packages}: } docker pull ghcr.io/ain-soph/autovul
+\end{itemize}
+
+\subsubsection*{(optional) Config Path}
+You can set the config files to customize data storage location and many other default settings. View \colorbox{lightgray}{/configs\_example} as an example config setting.
+
+We support 3 configs (priority ascend):
+
+{\small
+\begin{itemize}
+    \item {\bf package (DO NOT MODIFY)}
+          \begin{itemize}
+              \item \colorbox{lightgray}{autovul/base/configs/*.yml}
+              \item \colorbox{lightgray}{autovul/vision/configs/*.yml}
+          \end{itemize}
+    \item {\bf user}
+          \begin{itemize}
+              \item \colorbox{lightgray}{~/.autovul/configs/base/*.yml}
+              \item \colorbox{lightgray}{~/.autovul/configs/vision/*.yml}
+          \end{itemize}
+    \item {\bf workspace}
+          \begin{itemize}
+              \item \colorbox{lightgray}{./configs/base/*.yml}
+              \item \colorbox{lightgray}{./configs/vision/*.yml}
+          \end{itemize}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experiment workflow}
+\subsubsection*{Bash Files}
+Check the bash files under \colorbox{lightgray}{/bash} to reproduce our paper results.
+\subsubsection*{Train Models}
+You need to first run \colorbox{lightgray}{/bash/train.sh} to get pretrained models.
+
+If you run it for the first time, please run with \colorbox{lightgray}{--download} flag the to download the dataset:
+
+\colorbox{lightgray}{bash ./bash/train.sh "--download"}
+
+\subsubsection*{Run Attacks}
+\noindent
+\colorbox{lightgray}{/bash/adv\_attack.sh}
+
+\noindent
+\colorbox{lightgray}{/bash/poison.sh}
+
+\noindent
+\colorbox{lightgray}{/bash/backdoor.sh}
+
+\noindent
+\colorbox{lightgray}{/bash/extraction.sh}
+
+\noindent
+\colorbox{lightgray}{/bash/membership.sh}
+
+\subsubsection*{Run Other Exps}
+\noindent
+\colorbox{lightgray}{/bash/grad\_var.sh}
+
+\noindent
+\colorbox{lightgray}{/bash/mitigation\_backdoor.sh}
+
+\noindent
+\colorbox{lightgray}{/bash/mitigation\_extraction.sh}
+
+For mitigation experiments, the architecture names in our paper map to:
+
+{\small
+\begin{itemize}
+    \item {\bf darts-i: } \colorbox{lightgray}{diy\_deep}
+    \item {\bf darts-ii: } \colorbox{lightgray}{diy\_noskip}
+    \item {\bf darts-iii: } \colorbox{lightgray}{diy\_deep\_noskip}
+\end{itemize}
+
+These are the 3 options for \colorbox{lightgray}{--model\_arch \{arch\}} (with \colorbox{lightgray}{--model darts})
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Evaluation and expected results}
 
-{\em Obligatory. Describe all the steps necessary to reproduce the key results from your paper, with concrete claims. These will be the claims evaluated by the Artifact Evaluation Committee.}
+Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance. 
+\subsubsection*{Training}
+Most models around 96\%-97\% accuracy on CIFAR10.
+\subsubsection*{Attack}
+For automl models on CIFAR10,
+
+{\small
+\begin{itemize}
+    \item {\bf adversarial: } higher success rate around 10\% (±4\%).
+    \item {\bf poison: } lower accuracy drop around 5\% (±2\%).
+    \item {\bf backdoor: } higher success rate around 2\% (±1\%) and lower accuracy drop around 1\% (±1\%).
+    \item {\bf extraction: } lower inference cross entropy around 0.3 (±0.1\%).
+    \item {\bf membership: } higher auc around 0.04 (±0.01\%).
+\end{itemize}
+
+\subsubsection*{Others}
+
+{\small
+\begin{itemize}
+    \item {\bf gradient variance: } automl with lower gradient variance around 2.2 (±0.5).
+    \item {\bf mitigation architecture: } deep architectures (\colorbox{lightgray}{darts-i, darts-iii}) have larger cross entropy for extraction attack around 0.5, and higher accuracy drop for poisoning attack around 7\% (±3\%) with setting of 40\% poisoning fraction.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experiment customization}
-Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance. Therefore, for each attack, we expect automl models to have: 
-### Train
-Most models around 96%-97% accuracy on CIFAR10.
-### Attack
-For automl models on CIFAR10,
-* **adversarial**  
-    higher success rate (around 10%).
-* **poison**  
-    lower accuracy drop (around 5%).
-* **backdoor**  
-    higher success rate (around 2%)
-    lower accuracy drop (around 1%).
-* **extraction**  
-    lower inference cross entropy (around 0.3).
-* **membership**  
-    higher auc (around 0.04).
+Use \colorbox{lightgray}{-h} or \colorbox{lightgray}{--help} flag for example python files to check available arguments.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Notes}
@@ -125,9 +215,9 @@ For automl models on CIFAR10,
 Submission, reviewing and badging methodology:
 
 \begin{itemize}
-  \item \url{https://www.acm.org/publications/policies/artifact-review-badging}
-  \item \url{http://cTuning.org/ae/submission-20201122.html}
-  \item \url{http://cTuning.org/ae/reviewing-20201122.html}
+    \item \url{https://www.acm.org/publications/policies/artifact-review-badging}
+    \item \url{http://cTuning.org/ae/submission-20201122.html}
+    \item \url{http://cTuning.org/ae/reviewing-20201122.html}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

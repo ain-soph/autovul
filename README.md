@@ -2,32 +2,38 @@
 
 This is a minimum code implementation of our USENIX'22 paper [`On the Security Risks of AutoML`](https://arxiv.org/abs/2110.06018). 
 
+![python>=3.9](https://img.shields.io/badge/python->=3.9.2-informational.svg)
+[![License](https://img.shields.io/github/license/ain-soph/autovul)](https://opensource.org/licenses/GPL-3.0)
+
+[![pypi](https://img.shields.io/pypi/v/autovul)](https://pypi.org/project/autovul/)
+[![docker](https://img.shields.io/pypi/v/autovul?label=docker)](https://hub.docker.com/r/local0state/autovul)
+
 # Abstract
 The artifact discovers the vulnerability gap between manual models and automl models against various kinds of attacks (adversarial, poison, backdoor, extraction and membership) in image classification domain. It implements all datasets, models, and attacks used in our paper.    
 We expect the artifact could support the paper's claim that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by their small gradient variance.
 
 # Checklist
-* **Binary**: on [pypi](https://pypi.org/project/autovul/) with any platform.
-* **Model**: ResNet and other model pretrained weights are available with `--official` flag to download them automatically at first running.
-* **Data set**: CIFAR10, CIFAR100 and ImageNet32.  
+* **Binary:** on [pypi](https://pypi.org/project/autovul/) with any platform.
+* **Model:** ResNet and other model pretrained weights are available with `--official` flag to download them automatically at first running.
+* **Data set:** CIFAR10, CIFAR100 and ImageNet32.  
 Use `--download` flag to download them automatically at first running.  
 ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
-* **Run-time environment**:  
+* **Run-time environment:**  
     At any platform (Windows and Ubuntu tested).  
     `Pytorch` and `torchvision` required. (CUDA recommended)  
     `adversarial-robustness-toolbox` required for extraction attack and membership attack.
-* **Hardware**: GPU with CUDA support is recommended.
-* **Execution**: Model training and backdoor attack would be time-consuming. It would cost more than half day on a Nvidia Quodro RTX6000.
-* **Metrics**: Model accuracy, attack success rate, clean accuracy drop, cross entropy, f1 score, and auc.
-* **Output**: console output and saved model files (.pth).
-* **Experiments**: OS scripts.
-* **How much disk space is required (approximately)**:  
+* **Hardware:** GPU with CUDA support is recommended.
+* **Execution:** Model training and backdoor attack would be time-consuming. It would cost more than half day on a Nvidia Quodro RTX6000.
+* **Metrics:** Model accuracy, attack success rate, clean accuracy drop and cross entropy.
+* **Output:** console output and saved model files (.pth).
+* **Experiments:** OS scripts. Recommend to run scripts 3-5 times to reduce the randomness of experiments.
+* **How much disk space is required (approximately):**  
 less than 5GB.
-* **How much time is needed to prepare workflow (approximately)**: within 1 hour.
-* **How much time is needed to complete experiments (approximately)**: 3-4 days.
-* **Publicly available**: on GitHub.
-* **Code licenses**: GPL-3.
-* **Archived**: GitHub commit #XXXXXXX (todo).
+* **How much time is needed to prepare workflow (approximately):** within 1 hour.
+* **How much time is needed to complete experiments (approximately):** 3-4 days.
+* **Publicly available:** on GitHub.
+* **Code licenses:** GPL-3.
+* **Archived:** GitHub commit #XXXXXXX (todo).
 
 # Description
 ## How to access
@@ -48,15 +54,15 @@ Less than 5GB disk space is needed.
 ## Software Dependencies
 You need to install `python==3.9, pytorch==1.9.x, torchvision==0.10.x` manually.
 
-ART (IBM) required for extraction attack and membership attack.  
+ART (IBM) is required for extraction attack and membership attack.  
 `pip install adversarial-robustness-toolbox`
 
 ## Data set
-CIFAR10, CIFAR100 and ImageNet32.  
+We use CIFAR10, CIFAR100 and ImageNet32 datasets.  
 Use `--download` flag to download them automatically at first running.  
 ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
 ## Models
-ResNet and other model pretrained weights are available with `--official` flag to download them automatically at first running.
+ResNet and other model pretrained weights are available with `--official` flag to download automatically at first running.
 ## Installation
 * [**GitHub**](https://github.com/ain-soph/autovul)
 * [**PYPI**](https://pypi.org/project/autovul/)  
@@ -79,10 +85,10 @@ We support 3 configs (priority ascend):
 ## Experiment Workflow
 #### Bash Files
 Check the bash files under `/bash` to reproduce our paper results.
-#### Download Datasets
-If you run it for the first time, please run `bash ./bash/train.sh "--download"` to download the dataset.
 #### Train Models
-You need to first run `/bash/train.sh` to get pretrained models.
+You need to first run `/bash/train.sh` to get pretrained models.  
+If you run it for the first time, please run with `--download` flag the to download the dataset:  
+`bash ./bash/train.sh "--download"`
 #### Run Attacks
 ```
 /bash/adv_attack.sh
@@ -98,30 +104,30 @@ You need to first run `/bash/train.sh` to get pretrained models.
 /bash/mitigation_extraction.sh
 ```
 For mitigation experiments, the architecture names in our paper map to:
-* **darts-i**  : diy_deep
-* **darts-ii** : diy_no_skip
-* **darts-iii**: diy_deep_noskip
+* **darts-i:**   diy_deep
+* **darts-ii:**  diy_no_skip
+* **darts-iii:** diy_deep_noskip
 
 These are the 3 options for `--model_arch {arch}` (with `--model darts`)
 
 
 ## Evaluation and Expected Result
-Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance. Therefore, for each attack, we expect automl models to have: 
-### Train
+Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance.
+### Training
 Most models around 96%-97% accuracy on CIFAR10.
 ### Attack
 For automl models on CIFAR10,
 * **adversarial**  
-    higher success rate (around 10%).
+    higher success rate around 10% (±4%).
 * **poison**  
-    lower accuracy drop (around 5%).
+    lower accuracy drop around 5% (±2%).
 * **backdoor**  
-    higher success rate (around 2%)
-    lower accuracy drop (around 1%).
+    higher success rate around 2% (±1%)
+    lower accuracy drop around 1% (±1%).
 * **extraction**  
-    lower inference cross entropy (around 0.3).
+    lower inference cross entropy around 0.3 (±0.1%).
 * **membership**  
-    higher auc (around 0.04).
+    higher auc around 0.04 (±0.01%).
 ### Others
 * **gradient variance**  
     automl with lower gradient variance (around 2.2).
