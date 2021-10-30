@@ -3,14 +3,15 @@ declare -a models=("bit_comp" "densenet121_comp" "dla34_comp" "mobilenet_v2_comp
 declare -a rates=("0.0" "0.025" "0.05" "0.1" "0.2" "0.4")
 
 attack="poison_random"
-dataset=$1
+dataset="cifar10"
+args=$1
 
 for model in "${models[@]}"; do
     echo $model
     for rate in "${rates[@]}"; do
         echo $rate
         python examples/adv_attack.py --verbose 1 --epoch 50 --batch_size 96 --cutout --grad_clip 5.0 --lr 0.025 --lr_scheduler --validate_interval 1 --save \
-            --attack $attack --dataset $dataset --poison_percent $rate --model $model --train_mode dataset
+            --attack $attack --dataset $dataset --poison_percent $rate --model $model --train_mode dataset $args
     done
 done
 
@@ -19,6 +20,6 @@ for arch in "${archs[@]}"; do
     for rate in "${rates[@]}"; do
         echo $rate
         python examples/adv_attack.py --verbose 1 --epoch 50 --batch_size 96 --cutout --grad_clip 5.0 --lr 0.025 --lr_scheduler --validate_interval 1 --save \
-            --attack $attack --dataset $dataset --poison_percent $rate --model darts --model_arch $arch --train_mode dataset
+            --attack $attack --dataset $dataset --poison_percent $rate --model darts --model_arch $arch --train_mode dataset $args
     done
 done
