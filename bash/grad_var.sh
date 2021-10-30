@@ -6,10 +6,10 @@ args=$1
 
 for model in "${models[@]}"
 do
-    python projects/measure_covariance.py --pretrain --dataset $dataset --model $model $args
+    python projects/grad_var.py --pretrain --dataset $dataset --model $model $args
 done
 
 for arch in "${archs[@]}"
 do
-    python projects/measure_covariance.py --pretrain --dataset $dataset --model darts --model_arch $arch $args
+    python projects/grad_var.py --pretrain --dataset $dataset --model darts --model_arch $arch $args
 done
