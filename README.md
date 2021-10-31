@@ -14,13 +14,13 @@ We expect the artifact could support the paper's claim that automl models are mo
 
 # Checklist
 * **Binary:** on [pypi](https://pypi.org/project/autovul/) with any platform.
-* **Model:** ResNet and other model pretrained weights are available with `--official` flag to download them automatically at first running.
+* **Model:** Our pretrained models are available on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)).
 * **Data set:** CIFAR10, CIFAR100 and ImageNet32.  
 Use `--download` flag to download them automatically at first running.  
 ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
 * **Run-time environment:**  
     At any platform (Windows and Ubuntu tested).  
-    `Pytorch` and `torchvision` required. (CUDA recommended)  
+    `Pytorch` and `torchvision` required. (CUDA 11.3 recommended)  
     `adversarial-robustness-toolbox` required for extraction attack and membership attack.
 * **Hardware:** GPU with CUDA support is recommended.
 * **Execution:** Model training and backdoor attack would be time-consuming. It would cost more than half day on a Nvidia Quodro RTX6000.
@@ -47,12 +47,12 @@ less than 5GB.
     `docker pull ghcr.io/ain-soph/autovul`
 
 ## Hardware Dependencies
-Recommend to use GPU with CUDA and CUDNN.  
+Recommend to use GPU with CUDA 11.3 and CUDNN 8.0.  
 Less than 5GB disk space is needed.
 
 
 ## Software Dependencies
-You need to install `python==3.9, pytorch==1.9.x, torchvision==0.10.x` manually.
+You need to install `python==3.9, pytorch==1.10.x, torchvision==0.11.x` manually.
 
 ART (IBM) is required for extraction attack and membership attack.  
 `pip install adversarial-robustness-toolbox`
@@ -62,7 +62,7 @@ We use CIFAR10, CIFAR100 and ImageNet32 datasets.
 Use `--download` flag to download them automatically at first running.  
 ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
 ## Models
-ResNet and other model pretrained weights are available with `--official` flag to download automatically at first running.
+Our pretrained models are available on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)).
 ## Installation
 * [**GitHub**](https://github.com/ain-soph/autovul)
 * [**PYPI**](https://pypi.org/project/autovul/)  
@@ -89,6 +89,8 @@ Check the bash files under `/bash` to reproduce our paper results.
 You need to first run `/bash/train.sh` to get pretrained models.  
 If you run it for the first time, please run with `--download` flag the to download the dataset:  
 `bash ./bash/train.sh "--download"`
+
+It takes a relatively long time to train all models, here we provide our pretrained models on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)).
 #### Run Attacks
 ```
 /bash/adv_attack.sh
