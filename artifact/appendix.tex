@@ -46,7 +46,7 @@ We expect the artifact could support the paper's claim that automl models are mo
 {\small
 \begin{itemize}
     \item {\bf Binary: }on \href{https://pypi.org/project/autovul/}{pypi} with any platform.
-    \item {\bf Model: }Our pretrained models are available on Google Drive (\href{https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing}{link}).
+    \item {\bf Model: }Our pretrained models are available on Google Drive (\href{https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing}{link}). Follow the model path style \colorbox{lightgray}{\{model\_dir\}/image/\{dataset\}/\{model\}.pth} to place them in correct location.
     \item {\bf Data set: }CIFAR10, CIFAR100 and ImageNet32. Use \colorbox{lightgray}{-{}-download} flag to download them automatically at first running. ImageNet32 requires manual set-up at their \href{https://image-net.org/download-images.php}{website} due to legality.
     \item {\bf Run-time environment: }
 
@@ -91,7 +91,7 @@ ART (IBM) is required for extraction attack and membership attack. \colorbox{lig
 \subsubsection{Data sets}
 We use CIFAR10, CIFAR100 and ImageNet32 datasets. Use \colorbox{lightgray}{-{}-download} flag to download them automatically at first running. ImageNet32 requires manual set-up at their \href{https://image-net.org/download-images.php}{website} due to legality.
 \subsubsection{Models}
-Our pretrained models are available on Google Drive (\href{https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing}{link}).
+Our pretrained models are available on Google Drive (\href{https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing}{link}). Follow the model path style \colorbox{lightgray}{\{model\_dir\}/image/\{dataset\}/\{model\}.pth} to place them in correct location.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Installation}
@@ -135,11 +135,11 @@ Check the bash files under \colorbox{lightgray}{/bash} to reproduce our paper re
 \subsubsection*{Train Models}
 You need to first run \colorbox{lightgray}{/bash/train.sh} to get pretrained models.
 
-If you run it for the first time, please run with \colorbox{lightgray}{-{}-download} flag the to download the dataset:
+If you run it for the first time, please run with \colorbox{lightgray}{-{}-download} flag to download the dataset:
 
 \colorbox{lightgray}{bash ./bash/train.sh "-{}-download"}
 
-It takes a relatively long time to train all models, here we provide our pretrained models on Google Drive (\href{https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing}{link}).
+It takes a relatively long time to train all models, here we provide our pretrained models on Google Drive (\href{https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing}{link}). Follow the model path style \colorbox{lightgray}{\{model\_dir\}/image/\{dataset\}/\{model\}.pth} to place them in correct location.
 
 \subsubsection*{Run Attacks}
 \noindent

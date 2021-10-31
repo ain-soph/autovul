@@ -14,7 +14,7 @@ We expect the artifact could support the paper's claim that automl models are mo
 
 # Checklist
 * **Binary:** on [pypi](https://pypi.org/project/autovul/) with any platform.
-* **Model:** Our pretrained models are available on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)).
+* **Model:** Our pretrained models are available on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)). Follow the model path style `{model_dir}/image/{dataset}/{model}.pth` to place them in correct location.
 * **Data set:** CIFAR10, CIFAR100 and ImageNet32.  
 Use `--download` flag to download them automatically at first running.  
 ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
@@ -62,7 +62,7 @@ We use CIFAR10, CIFAR100 and ImageNet32 datasets.
 Use `--download` flag to download them automatically at first running.  
 ImageNet32 requires manual set-up at their [website](https://image-net.org/download-images.php) due to legality.
 ## Models
-Our pretrained models are available on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)).
+Our pretrained models are available on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)). Follow the model path style `{model_dir}/image/{dataset}/{model}.pth` to place them in correct location. 
 ## Installation
 * [**GitHub**](https://github.com/ain-soph/autovul)
 * [**PYPI**](https://pypi.org/project/autovul/)  
@@ -87,10 +87,10 @@ We support 3 configs (priority ascend):
 Check the bash files under `/bash` to reproduce our paper results.
 #### Train Models
 You need to first run `/bash/train.sh` to get pretrained models.  
-If you run it for the first time, please run with `--download` flag the to download the dataset:  
+If you run it for the first time, please run with `--download` flag to download the dataset:  
 `bash ./bash/train.sh "--download"`
 
-It takes a relatively long time to train all models, here we provide our pretrained models on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)).
+It takes a relatively long time to train all models, here we provide our pretrained models on Google Drive ([link](https://drive.google.com/drive/folders/1GrjEO89hYrdLhDMkBLC26jp1C7BwIKwm?usp=sharing)). Follow the model path style `{model_dir}/image/{dataset}/{model}.pth` to place them in correct location.
 #### Run Attacks
 ```
 /bash/adv_attack.sh
