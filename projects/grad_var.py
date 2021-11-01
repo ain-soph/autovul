@@ -42,4 +42,4 @@ if __name__ == '__main__':
         grad_list.append(grad)
     grad_tensor = torch.cat(grad_list, dim=0)
     std = float(grad_tensor.std(0).square().sum())
-    print(f'{model.name:20}  {str(grad_tensor.shape[-1]):10}    {std:f}')
+    print(f'{model.name:20}    {std:f}')

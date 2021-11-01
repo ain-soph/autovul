@@ -54,4 +54,4 @@ if __name__ == '__main__':
     model.activate_params([])
     grad_tensor = torch.stack(grad_list)
     std = float(grad_tensor.std(0).square().sum())
-    print(f'{model.name:20}  {str(grad_tensor.shape[-1]):10}    {std:f}')
+    print(f'{model.name:20}    {std:f}')
