@@ -52,9 +52,9 @@ We expect the artifact could support the paper's claim that automl models are mo
 
           At any platform (Windows and Ubuntu tested).
 
-          `Pytorch` and `torchvision` required. (CUDA 11.3 recommended)
+          `Pytorch' and `torchvision' required. (CUDA 11.3 recommended)
 
-          `adversarial-robustness-toolbox` required for extraction attack and membership attack.
+          `adversarial-robustness-toolbox' required for extraction attack and membership attack.
     \item {\bf Hardware: }GPU with CUDA support is recommended.
     \item {\bf Execution: }Model training and backdoor attack would be time-consuming. It would cost more than half day on a Nvidia Quodro RTX6000.
     \item {\bf Metrics: }Model accuracy, attack success rate, clean accuracy drop and cross entropy.
@@ -183,25 +183,25 @@ These are the 3 options for \colorbox{lightgray}{-{}-model\_arch \{arch\}} (with
 
 Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance. 
 \subsubsection*{Training}
-Most models around 96\%-97\% accuracy on CIFAR10.
+(Table 1) Most models around 96\%-97\% accuracy on CIFAR10.
 \subsubsection*{Attack}
 For automl models on CIFAR10,
 
 {\small
 \begin{itemize}
-    \item {\bf adversarial: } higher success rate around 10\% (±4\%).
-    \item {\bf poison: } lower accuracy drop around 5\% (±2\%).
-    \item {\bf backdoor: } higher success rate around 2\% (±1\%) and lower accuracy drop around 1\% (±1\%).
-    \item {\bf extraction: } lower inference cross entropy around 0.3 (±0.1\%).
-    \item {\bf membership: } higher auc around 0.04 (±0.01\%).
+    \item {\bf adversarial: } (Figure 2) higher success rate around 10\% (±4\%).
+    \item {\bf poison: } (Figure 6) lower accuracy drop around 5\% (±2\%).
+    \item {\bf backdoor: } (Figure 7) higher success rate around 2\% (±1\%) and lower accuracy drop around 1\% (±1\%).
+    \item {\bf extraction: } (Figure 9) lower inference cross entropy around 0.3 (±0.1).
+    \item {\bf membership: } (Figure 10) higher auc around 0.04 (±0.01).
 \end{itemize}
 
 \subsubsection*{Others}
 
 {\small
 \begin{itemize}
-    \item {\bf gradient variance: } automl with lower gradient variance around 2.2 (±0.5).
-    \item {\bf mitigation architecture: } deep architectures (\colorbox{lightgray}{darts-i, darts-iii}) have larger cross entropy for extraction attack around 0.5, and higher accuracy drop for poisoning attack around 7\% (±3\%) with setting of 40\% poisoning fraction.
+    \item {\bf gradient variance: } (Figure 12) automl with lower gradient variance around 2.2 (±0.5).
+    \item {\bf mitigation architecture: } (Table 4, Figure 16, 17) deep architectures (\colorbox{lightgray}{darts-i, darts-iii}) have larger cross entropy for extraction attack around 0.5, and higher accuracy drop for poisoning attack around 7\% (±3\%) with setting of 40\% poisoning fraction.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

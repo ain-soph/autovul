@@ -116,25 +116,26 @@ These are the 3 options for `--model_arch {arch}` (with `--model darts`)
 ## Evaluation and Expected Result
 Our paper claims that automl models are more vulnerable than manual models against various kinds of attacks, which could be explained by low gradient variance.
 ### Training
-Most models around 96%-97% accuracy on CIFAR10.
+(Table 1) Most models around 96%-97% accuracy on CIFAR10.
 ### Attack
 For automl models on CIFAR10,
 * **adversarial**  
-    higher success rate around 10% (±4%).
+    (Figure 2) higher success rate around 10% (±4%).
 * **poison**  
-    lower accuracy drop around 5% (±2%).
+    (Figure 6) lower accuracy drop around 5% (±2%).
 * **backdoor**  
+    (Figure 7) 
     higher success rate around 2% (±1%)
     lower accuracy drop around 1% (±1%).
 * **extraction**  
-    lower inference cross entropy around 0.3 (±0.1%).
+    (Figure 9) lower inference cross entropy around 0.3 (±0.1).
 * **membership**  
-    higher auc around 0.04 (±0.01%).
+    (Figure 10) higher auc around 0.04 (±0.01).
 ### Others
 * **gradient variance**  
-    automl with lower gradient variance (around 2.2).
+    (Figure 12) automl with lower gradient variance (around 2.2).
 * **mitigation architecture**  
-    deep architectures (`darts-i, darts-iii`) have larger cross entropy for extraction attack (around 0.5), and higher accuracy drop for poisoning attack (around 7%).
+    (Table 4, Figure 16, 17) deep architectures (`darts-i, darts-iii`) have larger cross entropy for extraction attack (around 0.5), and higher accuracy drop for poisoning attack (around 7%).
 
 ## Experiment Customization
 Use `-h` or `--help` flag for example python files to check available arguments.
