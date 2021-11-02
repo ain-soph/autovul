@@ -1,3 +1,5 @@
+# CUDA_VISIBLE_DEVICES=0 bash bash/mitigation_backdoor.sh > results/mitigation_backdoor.txt 2>&1
+
 declare -a archs=("diy_deep" "diy_noskip" "diy_deep_noskip")
 
 dataset="cifar10"

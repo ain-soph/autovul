@@ -1,3 +1,5 @@
+# CUDA_VISIBLE_DEVICES=0 bash bash/poison.sh > results/poison.txt 2>&1
+
 declare -a archs=("amoebanet" "darts" "drnas" "enas" "nasnet" "pc_darts" "pdarts" "snas_mild" "sgas" "random")
 declare -a models=("bit_comp" "densenet121_comp" "dla34_comp" "resnet18_comp" "resnext50_32x4d_comp" "vgg13_bn_comp" "wide_resnet50_2_comp")
 declare -a rates=("0.0" "0.025" "0.05" "0.1" "0.2" "0.4")
