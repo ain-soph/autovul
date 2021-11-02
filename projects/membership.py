@@ -48,7 +48,7 @@ if __name__ == '__main__':
     init_size = 50
     init_eval = 25
 
-    from art.attacks.evasion.hop_skip_jump import HopSkipJump
+    from art.attacks.evasion.hop_skip_jump import HopSkipJump  # type: ignore
 
     x_train, y_train = dataset_to_list(dataset.get_dataset('train'))
     x_train, y_train = to_numpy(torch.stack(x_train)), to_numpy(y_train)
