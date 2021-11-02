@@ -8,12 +8,10 @@ args=$1
 
 for model in "${models[@]}"
 do
-    echo $model
     python projects/membership.py  --dataset $dataset --pretrain --model $model $args
 done
 
 for arch in "${archs[@]}"
 do
-    echo $arch
     python projects/membership.py  --dataset $dataset --pretrain --model darts --model_arch $arch $args
 done

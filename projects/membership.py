@@ -86,4 +86,4 @@ if __name__ == '__main__':
     fpr, tpr, _ = metrics.roc_curve(y_truth, distance)
     auc = metrics.auc(fpr, tpr)
     auc = auc if auc >= 0.5 else 1 - auc
-    print('AUC:\t' + str(auc))
+    print(f'{model.name:20}    AUC:  {str(auc)}')
