@@ -119,7 +119,7 @@ class Model:
                  num_classes: int = None, folder_path: str = None,
                  official: bool = False, pretrain: bool = False,
                  randomized_smooth: bool = False, rs_sigma: float = 0.01, rs_n: int = 100,
-                 suffix: str = None, **kwargs):
+                 suffix: str = None, verbose: bool = False, **kwargs):
         self.param_list: dict[str, list[str]] = {}
         self.param_list['model'] = ['folder_path']
         if suffix is not None:
@@ -167,7 +167,7 @@ class Model:
         if official:
             self.load('official')
         if pretrain:
-            self.load(verbose=True)
+            self.load(verbose=verbose)
         self.eval()
         if env['num_gpus']:
             self.cuda()
