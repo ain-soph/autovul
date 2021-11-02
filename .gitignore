@@ -34,7 +34,7 @@ package-lock.json
 /*.egg-info
 
 # Filter Directory
-/result
+/results
 /output
 # /projects
 
