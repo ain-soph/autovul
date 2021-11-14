@@ -33,7 +33,7 @@ less than 5GB.
 * **How much time is needed to complete experiments (approximately):** 3-4 days.
 * **Publicly available:** on GitHub.
 * **Code licenses:** GPL-3.
-* **Archived:** GitHub commit [ff315234561602203615d11166f8f346b4f29dd4](https://github.com/ain-soph/autovul/tree/ff315234561602203615d11166f8f346b4f29dd4).
+* **Archived:** GitHub commit [be2ca9f1be212f31176c4898647f6f5444cee27e](https://github.com/ain-soph/autovul/tree/be2ca9f1be212f31176c4898647f6f5444cee27e).
 
 # Description
 ## How to access
